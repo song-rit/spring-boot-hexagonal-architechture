@@ -1,1 +1,1 @@
-# spring-boot-hexagonal-architechture
+# spring-boot-kotlin-hexagonal-architecture
