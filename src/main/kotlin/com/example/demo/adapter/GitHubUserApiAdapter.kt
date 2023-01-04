@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository
 
 
 @Repository
-class GitHubAdapter(
+class GitHubUserApiAdapter(
         private val gitHubUserAPI: GitHubUserAPI
 ) : GetUserFromGitHubPort {
 

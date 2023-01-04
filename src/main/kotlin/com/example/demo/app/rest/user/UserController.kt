@@ -1,5 +1,6 @@
 package com.example.demo.app.rest.user
 
+import com.example.demo.app.rest.user.model.UserResponse
 import com.example.demo.domain.service.user.GetUserCommand
 import com.example.demo.domain.service.user.UserService
 import com.example.demo.domain.service.user.model.GetUserResult
