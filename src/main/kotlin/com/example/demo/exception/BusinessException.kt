@@ -1,6 +1,8 @@
 package com.example.demo.exception
 
+import org.springframework.http.HttpStatus
+
 open class BusinessException : BaseException(){
+    open val httpStatus: HttpStatus = HttpStatus.UNPROCESSABLE_ENTITY
     open val code: String = "cm-001"
-    override val message: String = "some thing wrong"
 }

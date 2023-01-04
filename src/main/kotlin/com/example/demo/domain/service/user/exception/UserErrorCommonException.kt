@@ -1,9 +1,10 @@
 package com.example.demo.domain.service.user.exception
 
 import com.example.demo.exception.BusinessException
+import org.springframework.http.HttpStatus
 
 class UserErrorCommonException : BusinessException() {
-    override val code = "user-001"
-    override val message = "some thing wrong"
+    override val httpStatus: HttpStatus = HttpStatus.UNPROCESSABLE_ENTITY
+    override val code: String = "user-001"
 
 }
