@@ -34,6 +34,9 @@ dependencies {
 	implementation("org.springframework.cloud:spring-cloud-starter-sleuth")
 
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
+
+	testImplementation("org.mockito.kotlin:mockito-kotlin:3.2.0")
+	testImplementation("org.mockito:mockito-junit-jupiter:4.10.0")
 }
 
 
@@ -42,16 +45,6 @@ dependencyManagement {
 		mavenBom("org.springframework.cloud:spring-cloud-dependencies:${property("springCloudVersion")}")
 	}
 }
-
-
-//
-//dependencyManagement {
-//	imports {
-//		mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
-//	}
-//}
-
-
 
 
 tasks.withType<KotlinCompile> {
@@ -69,3 +62,9 @@ tasks.withType<BootBuildImage> {
 	builder = "paketobuildpacks/builder:tiny"
 	environment = mapOf("BP_NATIVE_IMAGE" to "true")
 }
+
+tasks.withType<Test> {
+	useJUnitPlatform()
+}
+
+
