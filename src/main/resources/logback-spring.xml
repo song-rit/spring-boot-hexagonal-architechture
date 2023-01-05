@@ -1,0 +1,32 @@
+<configuration>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%-4relative [%thread] %-5level %logger{35} - %msg %n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="JsonConsole"
+              class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="net.logstash.logback.encoder.LogstashEncoder">
+            <customFields>{"app-name":"demo-api"}</customFields>
+        </encoder>
+    </appender>
+
+    <springProfile name="default">
+        <logger name="com.example.demo" level="INFO" additivity="false">
+            <appender-ref ref="JsonConsole"/>
+        </logger>
+
+        <root level="INFO">
+            <appender-ref ref="JsonConsole"/>
+        </root>
+    </springProfile>
+
+    <springProfile name="dev">
+        <root level="INFO">
+            <appender-ref ref="STDOUT"/>
+        </root>
+    </springProfile>
+</configuration>
+
