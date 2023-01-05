@@ -1,6 +1,7 @@
 package com.example.demo.domain.service.user
 
 import com.example.demo.adapter.GitHubUserApiAdapter
+import com.example.demo.domain.port.user.GetUserFromGitHubPort
 import com.example.demo.domain.service.user.exception.UserErrorCommonException
 import com.example.demo.domain.service.user.model.GetUserResult
 import com.example.demo.domain.service.user.usecase.GetUserCommand
@@ -10,13 +11,13 @@ import org.springframework.stereotype.Service
 
 @Service
 class UserService(
-        private val GithubUserApiAdapter: GitHubUserApiAdapter,
+        private val getUserFromGitHubPort: GetUserFromGitHubPort,
 ) : GetUserUseCase {
 
     override fun getUser(getUserCommand: GetUserCommand): GetUserResult {
 
         try {
-            val userFromGitHub = GithubUserApiAdapter.getUserFromGitHub(getUserCommand.username)
+            val userFromGitHub = getUserFromGitHubPort.getUserFromGitHub(getUserCommand.username)
             return GetUserResult(
                     id = userFromGitHub.id,
                     name = userFromGitHub.name,
