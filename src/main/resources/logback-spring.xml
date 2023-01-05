@@ -13,7 +13,7 @@
         </encoder>
     </appender>
 
-    <springProfile name="default">
+    <springProfile name="!dev">
         <logger name="com.example.demo" level="INFO" additivity="false">
             <appender-ref ref="JsonConsole"/>
         </logger>
