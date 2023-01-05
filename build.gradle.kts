@@ -13,6 +13,8 @@ group = "com.example"
 version = "0.0.1-SNAPSHOT"
 java.sourceCompatibility = JavaVersion.VERSION_11
 
+extra["springCloudVersion"] = "2021.0.5"
+
 repositories {
 	maven { url = uri("https://repo.spring.io/release") }
 	mavenCentral()
@@ -29,8 +31,28 @@ dependencies {
 	implementation("net.logstash.logback:logstash-logback-encoder:6.6")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 
+	implementation("org.springframework.cloud:spring-cloud-starter-sleuth")
+
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
+
+
+dependencyManagement {
+	imports {
+		mavenBom("org.springframework.cloud:spring-cloud-dependencies:${property("springCloudVersion")}")
+	}
+}
+
+
+//
+//dependencyManagement {
+//	imports {
+//		mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+//	}
+//}
+
+
+
 
 tasks.withType<KotlinCompile> {
 	kotlinOptions {
