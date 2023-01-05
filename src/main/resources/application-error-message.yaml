@@ -1,0 +1,7 @@
+error-message-config:
+  codes:
+    user-001:
+      description: "common-error"
+      message:
+        en: "Sorry! something wrong. Please try again."
+        th: "ขออภัย! ไม่สามารถทำรายการได้, กรุณาลองใหม่อีกครั้ง"

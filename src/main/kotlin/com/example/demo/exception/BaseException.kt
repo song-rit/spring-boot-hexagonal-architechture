@@ -1,3 +1,3 @@
 package com.example.demo.exception
 
-open class BaseException() : RuntimeException()
+open class BaseException : RuntimeException()

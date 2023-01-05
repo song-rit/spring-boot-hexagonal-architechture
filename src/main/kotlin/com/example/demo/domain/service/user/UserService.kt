@@ -3,6 +3,8 @@ package com.example.demo.domain.service.user
 import com.example.demo.adapter.GitHubUserApiAdapter
 import com.example.demo.domain.service.user.exception.UserErrorCommonException
 import com.example.demo.domain.service.user.model.GetUserResult
+import com.example.demo.domain.service.user.usecase.GetUserCommand
+import com.example.demo.domain.service.user.usecase.GetUserUseCase
 import com.example.demo.exception.ApiException
 import org.springframework.stereotype.Service
 
@@ -21,7 +23,7 @@ class UserService(
                     pic = userFromGitHub.pic,
                     url = userFromGitHub.url
             )
-        } catch (e: ApiException) {
+        } catch (ex: ApiException) {
             throw UserErrorCommonException()
         }
     }

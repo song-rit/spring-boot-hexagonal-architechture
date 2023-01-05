@@ -1,4 +1,4 @@
-package com.example.demo.domain.service.user
+package com.example.demo.domain.service.user.usecase
 
 import com.example.demo.domain.service.user.model.GetUserResult
 
