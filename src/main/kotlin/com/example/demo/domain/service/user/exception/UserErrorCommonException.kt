@@ -6,5 +6,4 @@ import org.springframework.http.HttpStatus
 class UserErrorCommonException : BusinessException() {
     override val httpStatus: HttpStatus = HttpStatus.UNPROCESSABLE_ENTITY
     override val code: String = "user-001"
-
 }
