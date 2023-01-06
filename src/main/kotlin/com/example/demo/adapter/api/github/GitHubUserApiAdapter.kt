@@ -5,7 +5,7 @@ import com.example.demo.domain.port.user.model.GetUserFromGitHubPortResponse
 import com.example.demo.exception.ApiException
 import org.springframework.context.annotation.Profile
 import org.springframework.stereotype.Repository
-import java.util.logging.Logger
+import org.slf4j.LoggerFactory
 
 @Profile("!dev")
 @Repository
@@ -13,7 +13,7 @@ class GitHubUserApiAdapter(
         private val gitHubUserAPI: GitHubUserAPI
 ) : GetUserFromGitHubPort {
 
-    private val logger = Logger.getLogger(GitHubUserApiAdapter::class.java.name)
+    private val logger = LoggerFactory.getLogger(GitHubUserApiAdapter::class.java.name)
 
     override fun getUserFromGitHub(username: String): GetUserFromGitHubPortResponse {
         try {

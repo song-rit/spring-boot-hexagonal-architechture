@@ -8,13 +8,13 @@ import org.springframework.context.annotation.Profile
 import org.springframework.stereotype.Repository
 import org.springframework.web.client.RestClientException
 import org.springframework.web.client.RestTemplate
-import java.util.logging.Logger
+import org.slf4j.LoggerFactory
 
 @Profile("!dev")
 @Repository
 class GitHubUserAPI {
 
-    private val logger = Logger.getLogger(GitHubUserAPI::class.java.name)
+    private val logger = LoggerFactory.getLogger(GitHubUserAPI::class.java.name)
     fun getUser(username: String): GitHubAPIResponse {
         val url = "https://api.github.com/users/$username"
 

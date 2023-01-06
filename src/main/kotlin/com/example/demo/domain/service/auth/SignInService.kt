@@ -8,14 +8,14 @@ import com.example.demo.domain.service.auth.usecase.SignInUseCase
 import com.example.demo.exception.ApiException
 import com.example.demo.exception.BusinessException
 import org.springframework.stereotype.Service
-import java.util.logging.Logger
+import org.slf4j.LoggerFactory
 
 @Service
 class SignInService(
         private val signInToADPort: SignInToADPort,
 ) : SignInUseCase {
 
-    val logger = Logger.getLogger(SignInService::class.java.name)
+    val logger = LoggerFactory.getLogger(SignInService::class.java.name)
 
     override fun signIn(command: SignInUseCase.Command): SignInResult {
 

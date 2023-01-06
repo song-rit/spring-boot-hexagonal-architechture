@@ -7,14 +7,14 @@ import com.example.demo.exception.ApiException
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import org.springframework.context.annotation.Profile
 import org.springframework.stereotype.Repository
-import java.util.logging.Logger
+import org.slf4j.LoggerFactory
 
 @Profile("dev")
 @Repository
 class MockGitHubUserApiAdapter(
 ) : GetUserFromGitHubPort {
 
-    private val logger = Logger.getLogger(MockGitHubUserApiAdapter::class.java.name)
+    private val logger = LoggerFactory.getLogger(MockGitHubUserApiAdapter::class.java.name)
 
     override fun getUserFromGitHub(username: String): GetUserFromGitHubPortResponse {
 

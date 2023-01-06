@@ -2,7 +2,6 @@ package com.example.demo.domain.service.user
 
 import com.example.demo.domain.port.user.GetUserFromGitHubPort
 import com.example.demo.domain.port.user.model.GetUserFromGitHubPortResponse
-import com.example.demo.domain.service.user.usecase.GetUserCommand
 import com.example.demo.domain.service.user.usecase.GetUserUseCase
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.extension.ExtendWith
@@ -13,7 +12,6 @@ import org.junit.jupiter.api.Test
 import org.mockito.InjectMocks
 import org.mockito.Mock
 import org.mockito.Mockito
-import org.mockito.Spy
 import org.mockito.kotlin.times
 import org.mockito.kotlin.verify
 import org.mockito.kotlin.whenever

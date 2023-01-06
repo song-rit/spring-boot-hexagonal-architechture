@@ -5,7 +5,7 @@ import com.example.demo.domain.port.auth.SignInToADPort
 import com.example.demo.domain.port.auth.model.SignInToAdPortResponse
 import com.example.demo.exception.ApiException
 import org.springframework.stereotype.Repository
-import java.util.logging.Logger
+import org.slf4j.LoggerFactory
 
 
 @Repository
@@ -13,7 +13,7 @@ class AdApiAdapter(
         private val signInToAdAPI: SignInToAdAPI
 ) : SignInToADPort {
 
-    private val logger = Logger.getLogger(AdApiAdapter::class.java.name)
+    private val logger = LoggerFactory.getLogger(AdApiAdapter::class.java.name)
 
     override fun signInToAD(command: SignInToADPort.Command): SignInToAdPortResponse {
         logger.info("calling ad sign-in: $command")

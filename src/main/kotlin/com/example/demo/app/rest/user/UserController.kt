@@ -7,14 +7,14 @@ import org.springframework.web.bind.annotation.RestController
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
-import java.util.logging.Logger
+import org.slf4j.LoggerFactory
 
 
 @RestController
 @RequestMapping("/api/v1/users")
 class UserController(private val getUserUseCase: GetUserUseCase) {
 
-    private val logger = Logger.getLogger(this.toString())
+    private val logger = LoggerFactory.getLogger(this.toString())
 
     @GetMapping("/{username}")
     fun getUser(

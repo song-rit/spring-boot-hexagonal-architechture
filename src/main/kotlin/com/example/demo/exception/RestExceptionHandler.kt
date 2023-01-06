@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody
 import org.springframework.web.bind.annotation.RestControllerAdvice
 import java.lang.RuntimeException
 import javax.servlet.http.HttpServletResponse
-import java.util.logging.Logger
+import org.slf4j.LoggerFactory
 
 @RestControllerAdvice
 class RestExceptionHandler(
@@ -17,7 +17,7 @@ class RestExceptionHandler(
         private val environment: EnvironmentConfigurationProperty
 ) {
 
-    private val logger = Logger.getLogger(RestExceptionHandler::class.java.name)
+    private val logger = LoggerFactory.getLogger(RestExceptionHandler::class.java.name)
 
     companion object {
         val ENV_EXCLUDE_STACK_TRACE = arrayOf("uat")

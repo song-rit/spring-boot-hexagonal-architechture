@@ -4,18 +4,18 @@ import com.example.demo.app.rest.auth.model.SignInRequest
 import com.example.demo.app.rest.auth.model.SignInResponse
 import com.example.demo.domain.service.auth.model.SignInResult
 import com.example.demo.domain.service.auth.usecase.SignInUseCase
+import org.slf4j.LoggerFactory
 import org.springframework.web.bind.annotation.RestController
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
-import java.util.logging.Logger
 
 
 @RestController
 @RequestMapping("/api/v1/auth")
 class AuthenController(private val signInUseCase: SignInUseCase) {
 
-    private val logger = Logger.getLogger(AuthenController::class.java.name)
+    private val logger = LoggerFactory.getLogger(AuthenController::class.java.name)
 
     @PostMapping("/signIn")
     fun signIN(
