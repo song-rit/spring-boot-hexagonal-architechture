@@ -3,6 +3,7 @@ package com.example.demo.domain.service.user
 import com.example.demo.domain.port.user.GetUserFromGitHubPort
 import com.example.demo.domain.port.user.model.GetUserFromGitHubPortResponse
 import com.example.demo.domain.service.user.usecase.GetUserCommand
+import com.example.demo.domain.service.user.usecase.GetUserUseCase
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.extension.ExtendWith
 import org.mockito.junit.jupiter.MockitoExtension
@@ -41,7 +42,7 @@ internal class UserServiceTest {
                 pic = "https://avatars.githubusercontent.com/u/18021684?v=4",
                 url = "https://github.com/song-rit"
         ))
-        val command = GetUserCommand(
+        val command = GetUserUseCase.Command(
                 username = "song-cpe"
         )
         val result = userService.getUser(command)

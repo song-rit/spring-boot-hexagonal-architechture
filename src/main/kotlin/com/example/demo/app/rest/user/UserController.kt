@@ -6,11 +6,12 @@ import com.example.demo.domain.service.user.usecase.GetUserUseCase
 import com.example.demo.domain.service.user.model.GetUserResult
 import org.springframework.context.i18n.LocaleContextHolder
 import org.springframework.web.bind.annotation.*
+import java.lang.RuntimeException
 import java.util.logging.Logger
 
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/api/v1/users")
 class UserController(private val getUserUseCase: GetUserUseCase) {
 
     private val logger = Logger.getLogger(this.toString())
@@ -20,7 +21,7 @@ class UserController(private val getUserUseCase: GetUserUseCase) {
             @PathVariable username: String,
     ): UserResponse {
         val locale = LocaleContextHolder.getLocale()
-        val command = GetUserCommand(username = username)
+        val command = GetUserUseCase.Command(username = username)
         val result = getUserUseCase.getUser(command)
         logger.info("locale: $locale")
         return toGetUserResponse(result)

@@ -1,6 +1,5 @@
 package com.example.demo.domain.service.user
 
-import com.example.demo.adapter.GitHubUserApiAdapter
 import com.example.demo.domain.port.user.GetUserFromGitHubPort
 import com.example.demo.domain.service.user.exception.UserErrorCommonException
 import com.example.demo.domain.service.user.model.GetUserResult

@@ -4,7 +4,8 @@ import com.example.demo.domain.service.user.model.GetUserResult
 
 
 interface GetUserUseCase {
-    fun getUser(getUserCommand: GetUserCommand): GetUserResult
+    fun getUser(getUserCommand: Command): GetUserResult
+
+    data class Command(val username: String)
 }
 
-data class GetUserCommand(val username: String)
