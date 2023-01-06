@@ -1,7 +1,19 @@
 error-message-config:
   codes:
+    # domain user
     user-001:
       description: "common-error"
       message:
         en: "Sorry! something wrong. Please try again."
         th: "ขออภัย! ไม่สามารถทำรายการได้, กรุณาลองใหม่อีกครั้ง"
+    # domain authen
+    auth-001:
+      description: "common-error"
+      message:
+        en: "Sorry! something wrong. Please try again."
+        th: "ขออภัย! ไม่สามารถทำรายการได้, กรุณาลองใหม่อีกครั้ง"
+    auth-010:
+      description: "common-error"
+      message:
+        en: "Sorry! Invalid credential"
+        th: "ขออภัย! ข้อมูลผุ้ใช้งานไม่ถูกต้อง"
