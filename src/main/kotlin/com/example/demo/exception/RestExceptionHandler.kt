@@ -2,10 +2,12 @@ package com.example.demo.exception
 
 import com.example.demo.app.constant.LanguageConstant
 import org.springframework.context.i18n.LocaleContextHolder
+import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.ExceptionHandler
 import org.springframework.web.bind.annotation.ResponseBody
 import org.springframework.web.bind.annotation.RestControllerAdvice
+import java.lang.RuntimeException
 import javax.servlet.http.HttpServletResponse
 import java.util.logging.Logger
 
@@ -15,12 +17,28 @@ class RestExceptionHandler(
         private val environment: EnvironmentConfigurationProperty
 ) {
 
-    private val logger = Logger.getLogger(this.toString())
+    private val logger = Logger.getLogger(RestExceptionHandler::class.java.name)
 
     companion object {
         val ENV_EXCLUDE_STACK_TRACE = arrayOf("uat")
         const val defaultErrorCode = "cm-001"
         const val defaultErrorMessage = "Sorry! something wrong. Please try again."
+    }
+
+    @ExceptionHandler(value = [Exception::class, RuntimeException::class])
+    @ResponseBody
+    fun handleException(
+            ex: Exception,
+            response: HttpServletResponse
+    ): ResponseEntity<ErrorResponse> {
+        val body = ErrorResponse(
+                code = defaultErrorCode,
+                message = defaultErrorMessage,
+                description = defaultErrorMessage,
+                error = displayCauseMessage(ex)
+        )
+        ex.printStackTrace()
+        return ResponseEntity(body, HttpStatus.INTERNAL_SERVER_ERROR)
     }
 
     @ExceptionHandler(value = [BusinessException::class])
@@ -37,6 +55,7 @@ class RestExceptionHandler(
                 description = ErrorMessageFactory(errorMessageConfig).getDescription(ex.code),
                 error = displayCauseMessage(ex)
         )
+        ex.printStackTrace()
         return ResponseEntity(body, ex.httpStatus)
     }
 
