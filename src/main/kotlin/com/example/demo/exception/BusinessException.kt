@@ -4,5 +4,5 @@ import org.springframework.http.HttpStatus
 
 open class BusinessException : BaseException(){
     open val httpStatus: HttpStatus = HttpStatus.UNPROCESSABLE_ENTITY
-    open val code: String = "cm-001"
+    open val code: String = "comm-001"
 }

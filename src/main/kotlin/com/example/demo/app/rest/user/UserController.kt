@@ -3,8 +3,10 @@ package com.example.demo.app.rest.user
 import com.example.demo.app.rest.user.model.UserResponse
 import com.example.demo.domain.service.user.usecase.GetUserUseCase
 import com.example.demo.domain.service.user.model.GetUserResult
-import org.springframework.context.i18n.LocaleContextHolder
-import org.springframework.web.bind.annotation.*
+import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PathVariable
 import java.util.logging.Logger
 
 
@@ -18,10 +20,9 @@ class UserController(private val getUserUseCase: GetUserUseCase) {
     fun getUser(
             @PathVariable username: String,
     ): UserResponse {
-        val locale = LocaleContextHolder.getLocale()
         val command = GetUserUseCase.Command(username = username)
         val result = getUserUseCase.getUser(command)
-        logger.info("locale: $locale")
+        logger.info("username: $username")
         return toGetUserResponse(result)
     }
 

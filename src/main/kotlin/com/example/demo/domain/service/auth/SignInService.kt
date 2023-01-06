@@ -35,7 +35,9 @@ class SignInService(
                     username = command.username,
                     password = command.password
             ))
-            if (signInResponse.status == "success") {
+
+            logger.info("signInResponse: $signInResponse")
+            if (signInResponse.status == "pass") {
                 return SignInResult(
                         accessToken = "access_token",
                         refreshToken = "refresh_token",

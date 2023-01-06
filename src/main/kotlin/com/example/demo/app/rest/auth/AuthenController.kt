@@ -2,10 +2,12 @@ package com.example.demo.app.rest.auth
 
 import com.example.demo.app.rest.auth.model.SignInRequest
 import com.example.demo.app.rest.auth.model.SignInResponse
-import com.example.demo.app.rest.user.model.UserResponse
 import com.example.demo.domain.service.auth.model.SignInResult
 import com.example.demo.domain.service.auth.usecase.SignInUseCase
-import org.springframework.web.bind.annotation.*
+import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.RequestBody
 import java.util.logging.Logger
 
 

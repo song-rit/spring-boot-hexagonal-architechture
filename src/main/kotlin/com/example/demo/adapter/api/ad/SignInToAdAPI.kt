@@ -14,7 +14,7 @@ class SignInToAdAPI
 {
     fun signInToAd(username: String, password: String): SignInToAdAPIResponse {
         return SignInToAdAPIResponse(
-                result = "pl"
+                result = "ok"
         )
     }
 }
